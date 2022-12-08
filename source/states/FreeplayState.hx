@@ -282,6 +282,10 @@ class FreeplayState extends MusicBeatState
 		diffText.visible = false;
 		add(diffText);
 
+		#if android
+		addVirtualPad(LEFT_FULL, A_B);
+		#end	
+		
 		add(scoreText);
 
 		changeSelection();
@@ -320,10 +324,10 @@ class FreeplayState extends MusicBeatState
 		songNames.push(songData.chartName.toLowerCase());
 		songs.push(songData);
 		var songDiffs:Array<Int> = [];
-		if(FileSystem.isDirectory('assets/songs/${songData.chartName.toLowerCase()}') ){
-			for (file in FileSystem.readDirectory('assets/songs/${songData.chartName.toLowerCase()}'))
+		if(HSys.isDirectory(Main.path + 'assets/songs/${songData.chartName.toLowerCase()}') ){
+			for (file in HSys.readDirectory(Main.path + 'assets/songs/${songData.chartName.toLowerCase()}'))
 			{
-				if(file.endsWith(".json") && !FileSystem.isDirectory(file)){
+				if(file.endsWith(".json") && !HSys.isDirectory(file)){
 					var difficultyName = file.replace(".json","").replace(songData.chartName.toLowerCase(),"");
 					switch(difficultyName.toLowerCase()){
 						case '-easy':
