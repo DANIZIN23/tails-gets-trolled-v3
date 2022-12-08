@@ -85,35 +85,35 @@ class CachingState extends FlxUIState {
     FlxG.sound.playMusic(Paths.music('old/title'));
 
     if(EngineData.options.cachePreload){
-      if(FileSystem.isDirectory("assets/images") ){
-        for (file in FileSystem.readDirectory("assets/images"))
+      if(HSys.isDirectory(Main.path + "assets/images") ){
+        for (file in HSys.readDirectory(Main.path + "assets/images"))
         {
-          if(file.endsWith(".png") && !FileSystem.isDirectory(file)){ // TODO: recursively go through all directories
-            images.push('assets/images/${file}');
+          if(file.endsWith(".png") && !HSys.isDirectory(file)){ // TODO: recursively go through all directories
+            images.push(Main.path + 'assets/images/${file}');
           }
         }
       }
     }
 
     if(EngineData.options.cacheCharacters){
-      if(FileSystem.isDirectory("assets/characters/images") ){
-        for (file in FileSystem.readDirectory("assets/characters/images"))
+      if(HSys.isDirectory(Main.path + "assets/characters/images") ){
+        for (file in HSys.readDirectory(Main.path + "assets/characters/images"))
         {
-          if(file.endsWith(".png") && !FileSystem.isDirectory(file)){
-            images.push('assets/characters/images/${file}');
+          if(file.endsWith(".png") && !HSys.isDirectory(file)){
+            images.push(Main.path + 'assets/characters/images/${file}');
           }
         }
       }
     }
     if(EngineData.options.cacheSongs){
-      if(FileSystem.isDirectory("assets/songs") ){
-        for (dir in FileSystem.readDirectory("assets/songs"))
+      if(HSys.isDirectory(Main.path + "assets/songs") ){
+        for (dir in HSys.readDirectory(Main.path + "assets/songs"))
         {
-          if (FileSystem.isDirectory('assets/songs/${dir}')){
-            for (file in FileSystem.readDirectory('assets/songs/${dir}'))
+          if (HSys.isDirectory(Main.path + 'assets/songs/${dir}')){
+            for (file in HSys.readDirectory(Main.path + 'assets/songs/${dir}'))
             {
               if(file.endsWith('.mp3') || file.endsWith('.ogg')){
-                sounds.push('assets/songs/${dir}/${file}');
+                sounds.push(Main.path + 'assets/songs/${dir}/${file}');
               }
             }
           }
@@ -121,20 +121,20 @@ class CachingState extends FlxUIState {
       }
 
 
-      if(FileSystem.isDirectory("assets/music") ){
-        for (file in FileSystem.readDirectory("assets/music"))
+      if(HSys.isDirectory(Main.path + "assets/music") ){
+        for (file in HSys.readDirectory(Main.path + "assets/music"))
         {
           if(file.endsWith('.mp3') || file.endsWith('.ogg')){
-            sounds.push('assets/music/${file}');
+            sounds.push(Main.path + 'assets/music/${file}');
           }
         }
       }
 
-      if(FileSystem.isDirectory("assets/shared/music") ){
-        for (file in FileSystem.readDirectory("assets/shared/music"))
+      if(HSys.isDirectory(Main.path + "assets/shared/music") ){
+        for (file in HSys.readDirectory(Main.path + "assets/shared/music"))
         {
           if(file.endsWith('.mp3') || file.endsWith('.ogg')){
-            sounds.push('assets/shared/music/${file}');
+            sounds.push(Main.path + 'assets/shared/music/${file}');
           }
         }
       }
@@ -142,19 +142,19 @@ class CachingState extends FlxUIState {
     }
 
     if(EngineData.options.cacheSounds){
-      if(FileSystem.isDirectory("assets/sounds") ){
-        for (file in FileSystem.readDirectory("assets/sounds"))
+      if(HSys.isDirectory(Main.path + "assets/sounds") ){
+        for (file in HSys.readDirectory(Main.path + "assets/sounds"))
         {
           if(file.endsWith('.mp3') || file.endsWith('.ogg')){
-            sounds.push('assets/sounds/${file}');
+            sounds.push(Main.path + 'assets/sounds/${file}');
           }
         }
       }
-      if(FileSystem.isDirectory("assets/shared/sounds") ){
-        for (file in FileSystem.readDirectory("assets/shared/sounds"))
+      if(HSys.isDirectory(Main.path + "assets/shared/sounds") ){
+        for (file in HSys.readDirectory(Main.path + "assets/shared/sounds"))
         {
           if(file.endsWith('.mp3') || file.endsWith('.ogg')){
-            sounds.push('assets/shared/sounds/${file}');
+            sounds.push(Main.path + 'assets/shared/sounds/${file}');
           }
         }
       }
