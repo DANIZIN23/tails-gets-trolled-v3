@@ -1,5 +1,6 @@
 package;
 
+#if desktop
 import flixel.FlxSprite;
 
 /**
@@ -57,3 +58,4 @@ class MP4Sprite extends FlxSprite
 		video.resume();
 	}
 }
+#e 
