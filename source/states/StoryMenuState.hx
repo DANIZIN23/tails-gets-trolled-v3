@@ -187,7 +187,13 @@ class StoryMenuState extends MusicBeatState
 
 	override function create()
 	{
+		#if android
+		addVirtualPad(LEFT_FULL, A_B);
+		#end
+		
 		super.create();
+		
+		
 		transIn = FlxTransitionableState.defaultTransIn;
 		transOut = FlxTransitionableState.defaultTransOut;
 
