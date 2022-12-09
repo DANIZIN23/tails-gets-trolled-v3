@@ -58,6 +58,7 @@ import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import flash.events.KeyboardEvent;
 import Controls;
 import Controls.Control;
+import openfl.utils.Assets as OpenFlAssets;
 import openfl.media.Sound;
 import openfl.display.GraphicsShader;
 import sys.io.File;
@@ -1061,7 +1062,12 @@ class PlayState extends MusicBeatState
 		upscrollOffset = 50;
 		downscrollOffset = FlxG.height-165;
 
-		// if (SONG.song == 'South')
+		#if android
+		addAndroidControls();		
+		androidControls.visible = true;		
+		#end	
+		
+    // if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
 		// UI_camera.zoom = 1;
 		// cameras = [FlxG.cameras.list[1]];
